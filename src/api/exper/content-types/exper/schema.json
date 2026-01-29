@@ -1,0 +1,60 @@
+{
+  "kind": "collectionType",
+  "collectionName": "expers",
+  "info": {
+    "singularName": "exper",
+    "pluralName": "expers",
+    "displayName": "activity card"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "price": {
+      "type": "biginteger"
+    },
+    "rating": {
+      "type": "decimal"
+    },
+    "image": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "city": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::city.city",
+      "inversedBy": "activity_cards"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "activity_cards"
+    },
+    "tag": {
+      "type": "enumeration",
+      "enum": [
+        "Top Pick",
+        "Iconic"
+      ]
+    }
+  }
+}
